@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Playwright reports and results
+playwright-report/
+test-results/
+
+# Environment files
+.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# TypeScript build output (ako budeš kompajlirao .ts u .js)
+dist/
+out/
+build/

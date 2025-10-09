@@ -1,0 +1,23 @@
+{
+  "name": "orangehrmdatadriventest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "report": "npx playwright show-report",
+    "codegen": "npx playwright codegen",
+    "clean": "rm -rf test-results playwright-report"
+  },
+  "keywords": [],
+  "author": "Daniel Turkanovic",
+  "license": "MIT",
+  "description": "Playwright data-driven test framework for OrangeHRM demo site",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}
