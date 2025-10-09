@@ -3,33 +3,39 @@
 Automated tests for [OrangeHRM Demo](https://opensource-demo.orangehrmlive.com/) using **Playwright** and **TypeScript**.
 
 ## Setup
-
+<ul>
 1. Clone repo:
-   ```bash
-    git clone https://github.com/DanielTurkanovic/OrangeHrmDataDrivenTest.git
-    cd orangehrmdatadriventest
+<ul>
+   <li>git clone https://github.com/DanielTurkanovic/OrangeHrmDataDrivenTest.git</li>
+   <li>cd orangehrmdatadriventest</li>
+</ul>
 2. Install dependencies:
-    npm install
+<ul>
+   <li>npm install</li>
+</ul>
 3. Run tests:
-    npx playwright test
+<ul>
+   <li>npx playwright test</li>
+</ul>
 4. View report:
-    npx playwright show-report
+<ul>
+   <li>npx playwright show-report</li>
+</ul>
+</ul>
 
-## Project Structure
-
-├── pages/              # Page Object Model classes (e.g., MyInfoPage.ts)
-├── tests/              # Test files using Playwright test runner
-├── utils/              # Helpers, Excel reader, setup files
-├── testData/           # Excel files used for data-driven tests
+<p><strong>Project Structure</strong></p>
+<pre>
+Project Structure
+├── pages/           # Page Object Model classes (npr. MyInfoPage.ts)
+├── tests/           # Test files using Playwright test runner
+├── utils/           # Helpers, Excel reader, setup files
+├── testData/        # Excel files used for data-driven tests
 │   ├── loginSheet.xlsx
 │   └── personalDetails.xlsx
-├── package.json        # Dependencies and scripts
-├── .gitignore          # Specifies which files/folders to exclude from Git
-└── README.md           # Project documentation
-
-# (Auto-generated after running tests)
-# ├── test-results/       # Test output (not tracked by Git)
-# ├── playwright-report/  # HTML reports (not tracked by Git)
+├── package.json     # Dependencies and scripts
+├── .gitignore       # Specifies which files/folders to exclude from Git
+└── README.md        # Project documentation
+</pre>
 
 ## Description:
 
@@ -38,9 +44,13 @@ Each test reads data from Excel and automatically fills forms on the OrangeHRM d
 
 ## Technologies Used:
 
-Playwright
-TypeScript
-XLSX
+<ul>
+<ul>
+   <li>Playwright</li>
+   <li>TypeScript</li>
+   <li>XLSX</li>
+</ul>
+</ul>
 
 ## Author:
 
