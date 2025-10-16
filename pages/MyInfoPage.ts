@@ -45,6 +45,7 @@ export class MyInfoPage {
     this.bloodTypeDropdown = this.page.locator('//label[contains(text(),"Blood Type")]/following::div[1]');
     this.testFieldInput = this.page.locator('//label[contains(text(),"Test")]/following::input[1]');
     this.saveButton2 = this.page.locator('button[type="submit"]').nth(1);
+    //this.successToast = this.page.locator('#oxd-toaster_1');
     this.successToast = this.page.locator('#oxd-toaster_1');
   }
 
@@ -160,5 +161,7 @@ export class MyInfoPage {
     // Save button2
     await this.saveButton2.click();
     await this.successToast.waitFor({ state: 'visible' });
+    await expect(this.successToast).toBeVisible();
+    await expect(this.firstNameInput).toHaveValue(data.firstName);
   }
 }
