@@ -4,11 +4,10 @@ export default defineConfig({
   testDir: './tests',
   use: {
     baseURL: 'https://opensource-demo.orangehrmlive.com/?lang=en_US',
-    /*storageState: 'auth.json',*/
     testIdAttribute: 'data-tab-item',
     video: 'retain-on-failure',
     screenshot: 'only-on-failure',
-    headless: false,
+    headless: true,
     trace: 'retain-on-failure',
     actionTimeout: 60000,
   },
