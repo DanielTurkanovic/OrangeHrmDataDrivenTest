@@ -45,7 +45,6 @@ export class MyInfoPage {
     this.bloodTypeDropdown = this.page.locator('//label[contains(text(),"Blood Type")]/following::div[1]');
     this.testFieldInput = this.page.locator('//label[contains(text(),"Test")]/following::input[1]');
     this.saveButton2 = this.page.locator('button[type="submit"]').nth(1);
-    //this.successToast = this.page.locator('#oxd-toaster_1');
     this.successToast = this.page.locator('#oxd-toaster_1');
   }
 
