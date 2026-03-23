@@ -2,6 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
+    retries: process.env.CI ? 2 : 0,
   use: {
     baseURL: 'https://opensource-demo.orangehrmlive.com/?lang=en_US',
     testIdAttribute: 'data-tab-item',
@@ -9,7 +10,8 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     headless: true,
     trace: 'retain-on-failure',
-    actionTimeout: 60000,
+    actionTimeout: 30000,
+    navigationTimeout: 60000,
   },
 
   reporter: [
