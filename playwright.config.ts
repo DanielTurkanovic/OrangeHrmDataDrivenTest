@@ -2,6 +2,9 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
+  fullyParallel: true,       
+  workers: '50%',           
+  forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 0,
   use: {
     baseURL: 'https://opensource-demo.orangehrmlive.com/?lang=en_US',

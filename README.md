@@ -1,6 +1,6 @@
 # OrangeHRM Data-Driven Playwright Test
 
-![Playwright Tests](https://github.com/DanielTurkanovic/OrangeHrmDataDrivenTest/actions/workflows/playwright.yml/badge.svg)
+[![Playwright Tests](https://github.com/DanielTurkanovic/OrangeHrmDataDrivenTest/actions/workflows/playwright.yml/badge.svg)](https://github.com/DanielTurkanovic/OrangeHrmDataDrivenTest/actions)
 
 Automated tests for [OrangeHRM Demo](https://opensource-demo.orangehrmlive.com/) using **Playwright** and **TypeScript**.
 

@@ -5,7 +5,8 @@ export class LoginPage {
   readonly usernameInput: Locator;
   readonly passwordInput: Locator;
   readonly submitButton: Locator;
-  readonly dashboardHeader: Locator;
+  readonly dashboardHeader: Locator; // Vratili smo ga ovde
+  readonly errorMessage: Locator;    // Dodali smo i ovaj
 
   constructor(page: Page) {
     this.page = page;
@@ -13,6 +14,7 @@ export class LoginPage {
     this.passwordInput = page.locator('[name="password"]');
     this.submitButton = page.locator('[type="submit"]');
     this.dashboardHeader = page.locator('h6:has-text("Dashboard")');
+    this.errorMessage = page.locator('.oxd-alert-content-text');
   }
 
   async login(username: string, password: string) {
@@ -20,6 +22,5 @@ export class LoginPage {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.submitButton.click();
-    await this.dashboardHeader.waitFor({ state: 'visible' });
   }
 }
