@@ -15,12 +15,12 @@ for (const data of excelData) {
     await loginPage.login(data.username, data.password);
 
     if (data.expectedResult === 'dashboard') {
-      // Positivan scenario (dashboard)
+      // Positive scenario (dashboard)
       await expect(page.locator('img[alt="client brand banner"]')).toBeVisible();
       await expect(loginPage.dashboardHeader).toBeVisible();
       await expect(page).toHaveURL(/dashboard/);
     } else {
-      // Negativan scenario (error message)
+      // Negative scenario (error message)
       await expect(loginPage.errorMessage).toBeVisible();
       await expect(loginPage.errorMessage).toHaveText(data.expectedResult);
     }

@@ -1,6 +1,5 @@
 import { test } from '../utils/TestSetUp';
-import { getExcelData, PersonalDetails, User } from '../utils/excelReader'; // Dodali smo User
-import { MyInfoPage } from '../pages/MyInfoPage';
+import { getExcelData, PersonalDetails, User } from '../utils/excelReader'; 
 
 // Take admin credentials from Excel
 const loginData = getExcelData<User>('loginSheet.xlsx', 'Sheet1')[0]; 
@@ -14,11 +13,8 @@ test.describe('Update Personal Details', () => {
   });
 
   personalTestData.forEach((testData) => {
-    test(`Update personal details for ${testData.firstName} ${testData.lastName}`, async ({ loginPage }) => {
-      const page = loginPage.page;
-      const myInfoPage = new MyInfoPage(page);
+    test(`Update personal details for ${testData.firstName} ${testData.lastName}`, async ({ myInfoPage }) => {
 
-      // Now is the user is logged in MyInfoPage is visible
       await myInfoPage.navigateToPersonalDetails();
 
       // Fill in the form with data from Excel

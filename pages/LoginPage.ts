@@ -5,8 +5,8 @@ export class LoginPage {
   readonly usernameInput: Locator;
   readonly passwordInput: Locator;
   readonly submitButton: Locator;
-  readonly dashboardHeader: Locator; // Vratili smo ga ovde
-  readonly errorMessage: Locator;    // Dodali smo i ovaj
+  readonly dashboardHeader: Locator;
+  readonly errorMessage: Locator;    
 
   constructor(page: Page) {
     this.page = page;
