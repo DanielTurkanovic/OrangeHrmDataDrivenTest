@@ -1,4 +1,4 @@
-import * as XLSX from 'xlsx';
+import ExcelJS from 'exceljs';
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -26,29 +26,50 @@ export interface PersonalDetails {
   comment: string;
 }
 
-export function getExcelData<T>(fileName: string, sheetName: string): T[] {
-  // Path to the Excel file
+export async function getExcelData<T>(fileName: string, sheetName: string): Promise<T[]> {
   const filePath = path.join(process.cwd(), 'testData', fileName);
   
-  // Check if file exists
   if (!fs.existsSync(filePath)) {
     throw new Error(`File "${fileName}" not found in testData folder`);
   }
 
-  const workbook = XLSX.readFile(filePath);
-  const worksheet = workbook.Sheets[sheetName];
+  const workbook = new ExcelJS.Workbook();
+  await workbook.xlsx.readFile(filePath); 
+  
+  const worksheet = workbook.getWorksheet(sheetName);
 
   if (!worksheet) {
     throw new Error(`Sheet "${sheetName}" not found in "${fileName}"`);
   }
 
-  return XLSX.utils.sheet_to_json<T>(worksheet);
+  const data: T[] = [];
+
+  const headerRow = worksheet.getRow(1);
+
+  worksheet.eachRow((row, rowNumber) => {
+    if (rowNumber > 1) {
+      const rowData: any = {};
+      row.eachCell((cell, colNumber) => {
+        const header = headerRow.getCell(colNumber).value?.toString();
+        if (header) {
+          rowData[header] = cell.value;
+        }
+      });
+      data.push(rowData as T);
+    }
+  });
+
+  return data;
 }
 
-export function formatExcelDate(date: string | number): string {
-  if (typeof date === "number") {
-    const parsed = XLSX.SSF.parse_date_code(date);
-    return `${parsed.y}-${String(parsed.m).padStart(2, "0")}-${String(parsed.d).padStart(2, "0")}`;
+export function formatExcelDate(date: any): string {
+  if (!date) return "";
+  
+  const d = new Date(date);
+  
+  if (!isNaN(d.getTime())) {
+    return d.toISOString().split('T')[0];
   }
-  return date; 
+  
+  return String(date); 
 }

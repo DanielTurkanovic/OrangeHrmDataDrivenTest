@@ -1,5 +1,5 @@
-import { test, expect } from '../utils/TestSetUp';
-import { getExcelData } from '../utils/excelReader'; 
+import { test, expect } from '../utils/TestSetUp.js';
+import { getExcelData } from '../utils/excelReader.js'; 
 
 interface LoginData {
   username: string;
@@ -7,7 +7,7 @@ interface LoginData {
   expectedResult: string;
 }
 
-const excelData = getExcelData<LoginData>('loginSheet.xlsx', 'Sheet1');
+const excelData = (await getExcelData<LoginData>('loginSheet.xlsx', 'Sheet1')) || [];
 
 for (const data of excelData) {
   test(`Login Test for: ${data.username}`, async ({ loginPage, page }) => {
